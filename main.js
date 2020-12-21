@@ -1,38 +1,100 @@
 const colors = [
-  "#FFFFFF",
-  "#2196F3",
-  "#4CAF50",
-  "#FF9800",
-  "#009688",
-  "#795548",
+  '#FFFFFF',
+  '#2196F3',
+  '#4CAF50',
+  '#FF9800',
+  '#009688',
+  '#795548',
 ];
 
 const refs = {
-  body: document.querySelector("body"),
-  start: document.querySelector('button[data-action="start"]'),
-  stop: document.querySelector('button[data-action="stop"]'),
+  body: document.querySelector('body'),
+  startBtn: document.querySelector('button[data-action="start"]'),
+  stopBtn: document.querySelector('button[data-action="stop"]'),
 };
 
-const randomIntegerFromInterval = (min, max) => {
+let intervalId = 0; 
+
+function randomIntegerFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-let intervalId;
-
-const changeColor = () => {
+function cheangColor() {
   let color = randomIntegerFromInterval(0, colors.length - 1);
   refs.body.bgColor = colors[color];
 };
 
-const startHandler = () => {
-  refs.start.disabled = true;
-  intervalId = setInterval(changeColor, 1000);
+function startHendler() {
+  refs.startBtn.disabled = true;
+  intervalId = setInterval(cheangColor, 1000);
 };
 
-const stopHandler = () => {
+function stopHendler () {
+  refs.startBtn.disabled = false;
   clearInterval(intervalId);
-  refs.start.disabled = false;
 };
 
-refs.start.addEventListener("click", startHandler);
-refs.stop.addEventListener("click", stopHandler);
+refs.startBtn.addEventListener('click', startHendler);
+refs.stopBtn.addEventListener('click', stopHendler);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const colors = [
+  '#FFFFFF',
+  '#2196F3',
+  '#4CAF50',
+  '#FF9800',
+  '#009688',
+  '#795548',
+];
+
+const refs = {
+  body: document.querySelector('body'),
+  startBtn: document.querySelector('button[data-action="start"]'),
+  stopBtn: document.querySelector('button[data-action="stop"]'),
+};
+
+let intervalId = 0; 
+
+function randomIntegerFromInterval(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+function cheangColor() {
+  let color = randomIntegerFromInterval(0, colors.length - 1);
+  refs.body.bgColor = colors[color];
+};
+
+function startHendler() {
+  refs.startBtn.disabled = true;
+  intervalId = setInterval(cheangColor, 1000);
+};
+
+function stopHendler () {
+  refs.startBtn.disabled = false;
+  clearInterval(intervalId);
+};
+
+refs.startBtn.addEventListener('click', startHendler);
+refs.stopBtn.addEventListener('click', stopHendler);
