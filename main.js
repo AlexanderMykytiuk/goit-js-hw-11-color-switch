@@ -13,7 +13,7 @@ const refs = {
   stopBtn: document.querySelector('button[data-action="stop"]'),
 };
 
-let intervalId = 0; 
+let intervalId = null; 
 
 function randomIntegerFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
